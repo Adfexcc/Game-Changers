@@ -132,6 +132,8 @@ h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -.02em; 
 .reg .link { display: block; margin-top: 14px; color: #C9CEDC; font-size: 15px; word-break: break-all; }
 @media (max-width: 760px) { .reg { grid-template-columns: 1fr; padding: 32px 24px; } }
 
+.map { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.map iframe { width: 100%; height: 360px; border: 1px solid var(--line); display: block; background: var(--mist); }
 footer { padding-block: 40px; border-top: 1px solid var(--line); }
 footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 15px; }
 footer img { height: 40px; width: auto; }
@@ -240,7 +242,12 @@ footer img { height: 40px; width: auto; }
     <div class="info">
       <div class="card"><span class="k">Fecha</span><p>Jueves 3 de diciembre de 2026</p></div>
       <div class="card"><span class="k">Horario</span><p>16:30 – 20:00 h</p><small>Descanso de 18:15 a 18:30</small></div>
-      <div class="card"><span class="k">Lugar</span><p>Auditorio Edificio B</p><small>Universidad Europea de Madrid</small></div>
+      <div class="card"><span class="k">Lugar</span><p>Auditorio Edificio B</p><small>Universidad Europea de Madrid · C/ Tajo, s/n, Urb. El Bosque, 28670 Villaviciosa de Odón (Madrid)</small></div>
+    </div>
+    <div class="map">
+      <iframe title="Mapa: Universidad Europea de Madrid, Villaviciosa de Odón" src="https://maps.google.com/maps?q=Universidad%20Europea%20de%20Madrid%2C%20C%2F%20Tajo%20s%2Fn%2C%2028670%20Villaviciosa%20de%20Od%C3%B3n&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Universidad%20Europea%20de%20Madrid%2C%20C%2F%20Tajo%20s%2Fn%2C%2028670%20Villaviciosa%20de%20Od%C3%B3n" target="_blank" rel="noopener">Cómo llegar en Google Maps
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h16M13 5l7 7-7 7" fill="none" stroke="#FF3228" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="reg" id="inscripcion" style="margin-top:40px">
       <div>
