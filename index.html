@@ -73,6 +73,8 @@ section.s { padding-block: 88px; }
 h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -.02em; margin: 0 0 40px; text-wrap: balance; }
 
 /* programme */
+.prog-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; margin-bottom: 40px; }
+.prog-head h2 { margin: 0; }
 .open { display: flex; gap: 20px; align-items: baseline; padding-bottom: 22px; border-bottom: 2px solid var(--line); margin-bottom: 36px; font-size: 22px; font-weight: 700; flex-wrap: wrap; }
 .time { color: var(--red-text); font-weight: 800; font-variant-numeric: tabular-nums; }
 .blocks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
@@ -190,7 +192,11 @@ footer img { height: 40px; width: auto; }
 <section class="s" id="programa">
   <div class="wrap">
     <p class="eyebrow">Jueves 3 de diciembre de 2026</p>
-    <h2>Programa</h2>
+    <div class="prog-head">
+      <h2>Programa</h2>
+      <a class="btn" href="programa-game-changers.pdf" target="_blank" rel="noopener" download data-umami-event="Descarga programa">Descargar programa (PDF)
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M6 11l6 6 6-6M4 21h16" fill="none" stroke="#FF3228" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
     <div class="open"><span class="time">16:30</span> Presentación institucional y apertura del simposio</div>
     <div class="blocks">
       <article class="block">
