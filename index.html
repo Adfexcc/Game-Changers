@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Game Changers 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Game Changers. I Simposio Nacional de Marketing Deportivo. Jueves 3 de diciembre de 2026, 16:30 h, Universidad Europea de Madrid.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: white page, colour-powder hero with red frames, two-column programme, square-framed speaker grid. Single light look, as in the printed pieces. */
+:root {
+  --paper: #FFFFFF;
+  --mist: #F4F5F8;
+  --navy: #0B1020;
+  --ink: #1C1C1A;
+  --red: #FF3228;
+  --red-text: #C81E12;
+  --muted: #4A5068;
+  --line: #E3E5EC;
+  --font: 'Urbanist', 'Segoe UI', Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--navy); font-family: var(--font); font-size: 18px; line-height: 1.55; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* nav */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.nav img { height: 34px; width: auto; display: block; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 24px; font-weight: 700; font-size: 15px; }
+.nav ul a { text-decoration: none; }
+.nav ul a:hover { color: var(--red-text); }
+.btn { display: inline-flex; align-items: center; gap: 14px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: 15px; padding: 16px 22px; min-height: 48px; }
+.btn svg { width: 22px; height: 22px; flex: none; }
+.btn:hover { background: var(--navy); }
+.btn-sm { padding: 10px 16px; font-size: 13px; min-height: 44px; }
+@media (max-width: 760px) { .nav ul { display: none; } }
+
+/* hero */
+.hero { position: relative; overflow: hidden; background: var(--paper); }
+.hero .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .85; }
+.frame { position: absolute; border: 44px solid var(--red); pointer-events: none; }
+.f1 { width: 300px; height: 300px; right: -90px; top: -110px; }
+.f2 { width: 200px; height: 200px; left: -150px; bottom: -120px; border-width: 36px; }
+.hero .wrap { position: relative; padding-block: 72px 88px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+.hero h1 { margin: 0; font-size: clamp(64px, 12vw, 168px); line-height: .86; letter-spacing: -.035em; font-weight: 800; }
+.band { display: inline-block; margin-top: 26px; background: var(--navy); color: #fff; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; font-size: clamp(13px, 1.6vw, 18px); padding: 12px 18px; }
+.band b { color: var(--red); }
+.when { background: var(--red); color: #fff; padding: 28px 32px; display: flex; flex-direction: column; gap: 6px; min-width: 260px; }
+.when .d { font-size: 76px; font-weight: 800; line-height: .9; letter-spacing: -.03em; }
+.when .t { font-size: 20px; font-weight: 700; color: var(--navy); }
+.hero-cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.count { display: flex; gap: 10px; font-variant-numeric: tabular-nums; }
+.count div { background: rgba(255,255,255,.88); border: 1px solid var(--line); padding: 8px 12px; text-align: center; min-width: 64px; }
+.count b { display: block; font-size: 24px; line-height: 1.1; }
+.count span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } .when { min-width: 0; align-self: start; } }
+
+/* sections */
+section.s { padding-block: 88px; }
+.s.alt { background: var(--mist); }
+.eyebrow { font-size: 14px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--red-text); margin: 0 0 10px; }
+h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -.02em; margin: 0 0 40px; text-wrap: balance; }
+
+/* programme */
+.open { display: flex; gap: 20px; align-items: baseline; padding-bottom: 22px; border-bottom: 2px solid var(--line); margin-bottom: 36px; font-size: 22px; font-weight: 700; flex-wrap: wrap; }
+.time { color: var(--red-text); font-weight: 800; font-variant-numeric: tabular-nums; }
+.blocks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+@media (max-width: 860px) { .blocks { grid-template-columns: 1fr; } }
+.block-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.tag { background: var(--red); color: #fff; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; font-size: 14px; padding: 8px 14px; }
+.block-head .range { margin-left: auto; font-weight: 700; font-variant-numeric: tabular-nums; }
+.block h3 { font-size: 32px; margin: 14px 0 6px; letter-spacing: -.01em; }
+.coord { color: var(--muted); padding-bottom: 14px; border-bottom: 2px solid var(--navy); margin: 0; }
+.coord b { color: var(--navy); }
+.part { padding-block: 18px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.part .lbl { font-size: 13px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--red-text); }
+.who b { display: block; font-size: 20px; }
+.who span { color: var(--muted); font-size: 16px; }
+.who .mod { color: var(--muted); font-weight: 500; }
+.pause { margin-top: 18px; background: var(--navy); color: #fff; padding: 16px 20px; display: flex; gap: 18px; align-items: center; font-weight: 800; flex-wrap: wrap; }
+.pause .k { letter-spacing: .16em; text-transform: uppercase; }
+
+/* speakers */
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; max-width: 960px; }
+@media (max-width: 680px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sp { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.ph { aspect-ratio: 1; width: 100%; max-width: 100%; border: 8px solid var(--red); background: #fff; }
+.ph.org { border-color: var(--navy); }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph .ini { width: 100%; height: 100%; display: grid; place-items: center; background: var(--navy); color: #fff; font-size: 56px; font-weight: 800; }
+.sp .role { font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--red-text); }
+.sp .role.o { color: var(--navy); }
+.sp b { font-size: 19px; line-height: 1.2; }
+.sp span.a { color: var(--muted); font-size: 15px; line-height: 1.4; }
+
+/* info + registration */
+.info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 760px) { .info { grid-template-columns: 1fr; } }
+.card { background: #fff; border: 1px solid var(--line); padding: 26px; }
+.card .k { font-size: 13px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--red-text); }
+.card p { margin: 8px 0 0; font-size: 22px; font-weight: 700; }
+.card small { display: block; color: var(--muted); font-weight: 500; font-size: 16px; margin-top: 4px; }
+.reg { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; background: var(--navy); color: #fff; padding: 48px; position: relative; overflow: hidden; }
+.reg h2 { color: #fff; margin-bottom: 14px; }
+.reg p { color: #C9CEDC; margin: 0 0 26px; max-width: 52ch; }
+.reg .btn { background: var(--red); }
+.reg .btn:hover { background: #E0281F; }
+.reg .qr { background: #fff; padding: 14px; width: 200px; max-width: 100%; }
+.reg .qr img { display: block; width: 100%; height: auto; }
+.reg .link { display: block; margin-top: 14px; color: #C9CEDC; font-size: 15px; word-break: break-all; }
+@media (max-width: 760px) { .reg { grid-template-columns: 1fr; padding: 32px 24px; } }
+
+footer { padding-block: 40px; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 15px; }
+footer img { height: 40px; width: auto; }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Inicio"><img src="img/ue.png" alt="Universidad Europea Madrid"></a>
+    <ul>
+      <li><a href="#programa">Programa</a></li>
+      <li><a href="#ponentes">Ponentes</a></li>
+      <li><a href="#info">Información</a></li>
+    </ul>
+    <a class="btn btn-sm" href="https://forms.gle/EQGuAg3cJHFVVhh3A" target="_blank" rel="noopener">Inscríbete</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <img class="bg" src="img/powder.jpg" alt="">
+  <div class="frame f1" aria-hidden="true"></div>
+  <div class="frame f2" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <h1>Game<br>Changers</h1>
+      <div class="band"><b>I</b> Simposio Nacional de Marketing Deportivo</div>
+      <div class="hero-cta">
+        <a class="btn" href="https://forms.gle/EQGuAg3cJHFVVhh3A" target="_blank" rel="noopener">Inscríbete gratis
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h16M13 5l7 7-7 7" fill="none" stroke="#FF3228" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="count" id="count" aria-label="Cuenta atrás hasta el simposio">
+          <div><b id="cd-d">–</b><span>días</span></div>
+          <div><b id="cd-h">–</b><span>horas</span></div>
+          <div><b id="cd-m">–</b><span>min</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="when">
+      <span class="d">03 DIC</span>
+      <span class="t">Jueves · 16:30 h</span>
+      <span class="t">Universidad Europea de Madrid</span>
+    </div>
+  </div>
+</header>
+
+<section class="s" id="programa">
+  <div class="wrap">
+    <p class="eyebrow">Jueves 3 de diciembre de 2026</p>
+    <h2>Programa</h2>
+    <div class="open"><span class="time">16:30</span> Presentación institucional y apertura del simposio</div>
+    <div class="blocks">
+      <article class="block">
+        <div class="block-head"><span class="tag">Bloque I</span><span class="range">16:40 – 18:15</span></div>
+        <h3>Deportes individuales</h3>
+        <p class="coord">Coordinación: <b>Iván Ramírez Bravo</b> · Universidad Europea de Madrid</p>
+        <div class="part"><span class="lbl">Ponencia</span>
+          <div class="who"><b>Jon Saez Benítez</b><span>Responsable Canyon España</span></div></div>
+        <div class="part"><span class="lbl">Mesa redonda</span>
+          <div class="who"><b>Miriam Casillas OLY</b><span>Triatleta internacional. JJ.OO. Río ’16, Tokio ’20 y París ’24. Graduada en Medicina</span></div>
+          <div class="who"><b>Eugenio Benito</b><span>Management Antonio Benito Team</span></div>
+          <div class="who"><b><span class="mod">Modera:</span> Iván Ramírez Bravo</b><span>Universidad Europea de Madrid</span></div></div>
+        <div class="pause"><span class="time" style="color:#fff">18:15 – 18:30</span><span class="k">Descanso</span></div>
+      </article>
+      <article class="block">
+        <div class="block-head"><span class="tag">Bloque II</span><span class="range">18:30 – 20:00</span></div>
+        <h3>Deportes de equipo</h3>
+        <p class="coord">Coordinación: <b>Jorge López Fernández</b> · Escuela Universitaria Real Madrid</p>
+        <div class="part"><span class="lbl">Ponencia</span>
+          <div class="who"><b>Diana Sanchidrián Rodríguez</b><span>Socia fundadora y directora de Comunicación en MB Comunicación</span></div></div>
+        <div class="part"><span class="lbl">Mesa redonda</span>
+          <div class="who"><b>Marian Otamendi</b><span>CEO World Football Summit</span></div>
+          <div class="who"><b>Germán Robles</b><span>CEO GRH Lab</span></div>
+          <div class="who"><b><span class="mod">Modera:</span> Paula Alejo</b><span>Marketing y Desarrollo de Negocio Online · Escuela Universitaria Real Madrid</span></div></div>
+        <div class="pause"><span class="time" style="color:#fff">20:00</span><span>Conclusiones y cierre del evento</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="s alt" id="ponentes">
+  <div class="wrap">
+    <p class="eyebrow">Quién participa</p>
+    <h2>Ponentes y organización</h2>
+    <div class="grid">
+      <div class="sp"><div class="ph"><img src="img/jon.jpg" alt="Jon Saez Benítez" loading="lazy"></div><span class="role">Ponente · Bloque I</span><b>Jon Saez Benítez</b><span class="a">Responsable Canyon España</span></div>
+      <div class="sp"><div class="ph"><img src="img/miriam.jpg" alt="Miriam Casillas" loading="lazy"></div><span class="role">Mesa redonda · Bloque I</span><b>Miriam Casillas OLY</b><span class="a">Triatleta internacional. JJ.OO. Río ’16, Tokio ’20 y París ’24. Graduada en Medicina</span></div>
+      <div class="sp"><div class="ph"><img src="img/eugenio.jpg" alt="Eugenio Benito" loading="lazy"></div><span class="role">Mesa redonda · Bloque I</span><b>Eugenio Benito</b><span class="a">Management Antonio Benito Team</span></div>
+      <div class="sp"><div class="ph"><img src="img/diana.jpg" alt="Diana Sanchidrián Rodríguez" loading="lazy"></div><span class="role">Ponente · Bloque II</span><b>Diana Sanchidrián Rodríguez</b><span class="a">Socia fundadora y directora de Comunicación en MB Comunicación</span></div>
+      <div class="sp"><div class="ph"><img src="img/marian.jpg" alt="Marian Otamendi" loading="lazy"></div><span class="role">Mesa redonda · Bloque II</span><b>Marian Otamendi</b><span class="a">CEO World Football Summit</span></div>
+      <div class="sp"><div class="ph"><img src="img/german.jpg" alt="Germán Robles" loading="lazy"></div><span class="role">Mesa redonda · Bloque II</span><b>Germán Robles</b><span class="a">CEO GRH Lab</span></div>
+      <div class="sp"><div class="ph org"><img src="img/jorge.jpg" alt="Jorge López Fernández" loading="lazy"></div><span class="role o">Presidente del Simposio</span><b>Jorge López Fernández</b><span class="a">Escuela Universitaria Real Madrid</span></div>
+      <div class="sp"><div class="ph org"><img src="img/ivan.jpg" alt="Iván Ramírez Bravo" loading="lazy"></div><span class="role o">Organización</span><b>Iván Ramírez Bravo</b><span class="a">Universidad Europea de Madrid</span></div>
+      <div class="sp"><div class="ph org"><div class="ini" aria-hidden="true">PA</div></div><span class="role o">Organización</span><b>Paula Alejo</b><span class="a">Marketing y Desarrollo de Negocio Online · Escuela Universitaria Real Madrid</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="info">
+  <div class="wrap">
+    <p class="eyebrow">Información práctica</p>
+    <h2>Cuándo y dónde</h2>
+    <div class="info">
+      <div class="card"><span class="k">Fecha</span><p>Jueves 3 de diciembre de 2026</p></div>
+      <div class="card"><span class="k">Horario</span><p>16:30 – 20:00 h</p><small>Descanso de 18:15 a 18:30</small></div>
+      <div class="card"><span class="k">Lugar</span><p>Universidad Europea de Madrid</p></div>
+    </div>
+    <div class="reg" id="inscripcion" style="margin-top:40px">
+      <div>
+        <h2>Reserva tu plaza</h2>
+        <p>La inscripción se hace a través del formulario. Los asistentes reciben certificado de asistencia y participación.</p>
+        <a class="btn" href="https://forms.gle/EQGuAg3cJHFVVhh3A" target="_blank" rel="noopener">Ir al formulario
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h16M13 5l7 7-7 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <span class="link">forms.gle/EQGuAg3cJHFVVhh3A</span>
+      </div>
+      <div class="qr"><img src="img/qr.png" alt="Código QR del formulario de inscripción"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="img/ue.png" alt="Universidad Europea Madrid">
+    <span>Game Changers · I Simposio Nacional de Marketing Deportivo · 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var target = new Date('2026-12-03T16:30:00+01:00').getTime();
+  var d = document.getElementById('cd-d'), h = document.getElementById('cd-h'), m = document.getElementById('cd-m');
+  function tick() {
+    var diff = Math.max(0, target - Date.now());
+    d.textContent = Math.floor(diff / 864e5);
+    h.textContent = Math.floor(diff / 36e5) % 24;
+    m.textContent = Math.floor(diff / 6e4) % 60;
+    if (diff === 0) document.getElementById('count').hidden = true;
+  }
+  tick(); setInterval(tick, 30000);
+})();
+</script>
+
+</body>
+</html>
