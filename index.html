@@ -62,7 +62,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .count { display: flex; gap: 10px; font-variant-numeric: tabular-nums; }
 .count div { background: rgba(255,255,255,.88); border: 1px solid var(--line); padding: 8px 12px; text-align: center; min-width: 64px; }
 .count b { display: block; font-size: 24px; line-height: 1.1; }
-.count span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.count span { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
 @media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } .when { min-width: 0; align-self: start; } }
 
 /* sections */
@@ -101,10 +101,10 @@ h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -.02em; 
 .sp .role { font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--red-text); }
 .sp .role.o { color: var(--navy); }
 .sp b { font-size: 19px; line-height: 1.2; }
-.sp-btn { font: inherit; color: inherit; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; }
-.sp-btn .ph { display: block; transition: transform .2s ease; }
-.sp-btn:hover .ph, .sp-btn:focus-visible .ph { transform: rotate(-2deg) scale(1.03); }
-.sp-btn:active .ph { transform: scale(.97); }
+.gc-logo { display: block; background: none; border: 0; padding: 0; margin: 0 0 18px -6px; cursor: pointer; width: clamp(84px, 11vw, 132px); aspect-ratio: 1; max-width: 100%; }
+.gc-logo svg { width: 100%; height: 100%; overflow: visible; display: block; transition: transform .25s ease; }
+.gc-logo:hover svg, .gc-logo:focus-visible svg { transform: rotate(-8deg) scale(1.06); }
+.gc-logo:active svg { transform: scale(.94); }
 .count b { display: inline-block; }
 .count b.tickA { animation: tick .35s ease; }
 .count b.tickB { animation: tick2 .35s ease; }
@@ -112,7 +112,7 @@ h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -.02em; 
 @keyframes tick2 { from { transform: translateY(-6px); opacity: .3; } to { transform: none; opacity: 1; } }
 .count .sec b { color: var(--red-text); }
 #confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
-@media (prefers-reduced-motion: reduce) { .count b.tickA, .count b.tickB { animation: none; } .sp-btn .ph { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .count b.tickA, .count b.tickB { animation: none; } .gc-logo svg { transition: none; } }
 .sp span.a { color: var(--muted); font-size: 15px; line-height: 1.4; }
 
 /* info + registration */
@@ -157,6 +157,9 @@ footer img { height: 40px; width: auto; }
   <div class="frame f2" aria-hidden="true"></div>
   <div class="wrap">
     <div>
+      <button type="button" class="gc-logo" id="gclogo" aria-label="Logo de Game Changers. Púlsalo">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M 99.3 32.5 A 48 48 0 1 0 99.3 87.5" fill="none" stroke="#0B1020" stroke-width="9" stroke-linecap="round"/><polyline points="44,38 66,60 44,82" fill="none" stroke="#0B1020" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><polyline points="72,38 94,60 72,82" fill="none" stroke="#FF3228" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><line x1="94" y1="60" x2="116" y2="60" stroke="#FF3228" stroke-width="11" stroke-linecap="round"/></svg>
+      </button>
       <h1>Game<br>Changers</h1>
       <div class="band"><b>I</b> Simposio Nacional de Marketing Deportivo</div>
       <div class="hero-cta">
@@ -223,7 +226,7 @@ footer img { height: 40px; width: auto; }
       <div class="sp"><div class="ph"><img src="img/diana.jpg" alt="Diana Sanchidrián Rodríguez" loading="lazy"></div><span class="role">Ponente · Bloque II</span><b>Diana Sanchidrián Rodríguez</b><span class="a">Socia fundadora y directora de Comunicación en MB Comunicación</span></div>
       <div class="sp"><div class="ph"><img src="img/marian.jpg" alt="Marian Otamendi" loading="lazy"></div><span class="role">Mesa redonda · Bloque II</span><b>Marian Otamendi</b><span class="a">CEO World Football Summit</span></div>
       <div class="sp"><div class="ph"><img src="img/german.jpg" alt="Germán Robles" loading="lazy"></div><span class="role">Mesa redonda · Bloque II</span><b>Germán Robles</b><span class="a">CEO GRH Lab</span></div>
-      <button type="button" class="sp sp-btn" id="jorge" aria-label="Jorge López Fernández, Presidente del Simposio. Pulsa para celebrar"><span class="ph org"><img src="img/jorge.jpg" alt="" loading="lazy"></span><span class="role o">Presidente del Simposio</span><b>Jorge López Fernández</b><span class="a">Escuela Universitaria Real Madrid</span></button>
+      <div class="sp"><div class="ph org"><img src="img/jorge.jpg" alt="Jorge López Fernández" loading="lazy"></div><span class="role o">Presidente del Simposio</span><b>Jorge López Fernández</b><span class="a">Escuela Universitaria Real Madrid</span></div>
       <div class="sp"><div class="ph org"><img src="img/ivan.jpg" alt="Iván Ramírez Bravo" loading="lazy"></div><span class="role o">Organización</span><b>Iván Ramírez Bravo</b><span class="a">Universidad Europea de Madrid</span></div>
       <div class="sp"><div class="ph org"><div class="ini" aria-hidden="true">PA</div></div><span class="role o">Organización</span><b>Paula Alejo</b><span class="a">Marketing y Desarrollo de Negocio Online · Escuela Universitaria Real Madrid</span></div>
     </div>
@@ -283,19 +286,19 @@ footer img { height: 40px; width: auto; }
   }
   tick(); setInterval(tick, 1000);
 
-  /* confetti on Jorge */
+  /* mini UEM logos burst from the Game Changers logo */
   var cv = document.getElementById('confetti'), ctx = cv.getContext('2d');
   var parts = [], running = false;
-  var colors = ['#FF3228', '#0B1020', '#3F66C9', '#FF8A3D', '#F2557A', '#FFFFFF'];
+  var mark = new Image(); mark.src = 'img/ue-mark.png';
   function resize() { var r = window.devicePixelRatio || 1; cv.width = innerWidth * r; cv.height = innerHeight * r; ctx.setTransform(r, 0, 0, r, 0, 0); }
   resize(); addEventListener('resize', resize);
   function burst(x, y) {
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var n = reduce ? 40 : 180;
+    var n = reduce ? 20 : 70;
     for (var i = 0; i < n; i++) {
       var a = Math.random() * Math.PI * 2, sp = 4 + Math.random() * 9;
-      parts.push({ x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 6, w: 6 + Math.random() * 8, h: 4 + Math.random() * 6,
-        r: Math.random() * 6.28, vr: (Math.random() - .5) * .4, c: colors[i % colors.length], life: 0, max: 110 + Math.random() * 60, sq: Math.random() < .35 });
+      parts.push({ x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 6, s: 16 + Math.random() * 22,
+        r: (Math.random() - .5) * 1.2, vr: (Math.random() - .5) * .25, life: 0, max: 120 + Math.random() * 60 });
     }
     if (!running) { running = true; requestAnimationFrame(frame); }
   }
@@ -305,15 +308,15 @@ footer img { height: 40px; width: auto; }
     parts.forEach(function (p) {
       p.life++; p.vy += .25; p.vx *= .985; p.x += p.vx; p.y += p.vy; p.r += p.vr;
       ctx.save(); ctx.globalAlpha = Math.min(1, (p.max - p.life) / 30);
-      ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c;
-      if (p.sq) { ctx.strokeStyle = p.c; ctx.lineWidth = 2.5; ctx.strokeRect(-p.w / 2, -p.w / 2, p.w, p.w); }
-      else { ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.r * 2))); }
+      ctx.translate(p.x, p.y); ctx.rotate(p.r);
+      if (mark.complete && mark.naturalWidth) ctx.drawImage(mark, -p.s / 2, -p.s / 2, p.s, p.s);
+      else { ctx.fillStyle = '#FF3228'; ctx.fillRect(-p.s / 2, -p.s / 2, p.s, p.s); }
       ctx.restore();
     });
     if (parts.length) requestAnimationFrame(frame); else { running = false; ctx.clearRect(0, 0, innerWidth, innerHeight); }
   }
-  document.getElementById('jorge').addEventListener('click', function (e) {
-    var r = this.querySelector('.ph').getBoundingClientRect();
+  document.getElementById('gclogo').addEventListener('click', function () {
+    var r = this.getBoundingClientRect();
     burst(r.left + r.width / 2, r.top + r.height / 2);
     setTimeout(function () { burst(innerWidth * .2, innerHeight * .3); }, 180);
     setTimeout(function () { burst(innerWidth * .8, innerHeight * .3); }, 320);
