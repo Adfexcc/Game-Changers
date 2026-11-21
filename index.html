@@ -137,7 +137,9 @@ h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -.02em; 
 footer { padding-block: 40px; border-top: 1px solid var(--line); }
 footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 15px; }
 footer img { height: 40px; width: auto; }
-.made { margin: 28px 0 0; text-align: center; font-size: 14px; font-weight: 700; letter-spacing: .04em; color: var(--muted); padding-inline: 16px; }
+.legal { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; text-align: right; }
+.made { font-size: 12px; opacity: .85; }
+@media (max-width: 600px) { .legal { align-items: flex-start; text-align: left; } }
 </style>
 </head>
 <body>
@@ -266,9 +268,11 @@ footer img { height: 40px; width: auto; }
 <footer>
   <div class="wrap">
     <img src="img/ue.png" alt="Universidad Europea Madrid">
-    <span>Game Changers · I Simposio Nacional de Marketing Deportivo · 2026</span>
+    <div class="legal">
+      <span>© 2026 Game Changers · I Simposio Nacional de Marketing Deportivo</span>
+      <span class="made">Hecho con 🩵 por Mindara</span>
+    </div>
   </div>
-  <p class="made">Hecho con 🩵 por Mindara</p>
 </footer>
 
 <canvas id="confetti" aria-hidden="true"></canvas>
