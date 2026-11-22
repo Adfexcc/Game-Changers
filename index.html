@@ -144,6 +144,29 @@ footer img { height: 40px; width: auto; }
 .legal { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; text-align: right; }
 .made { font-size: 12px; opacity: .85; }
 @media (max-width: 600px) { .legal { align-items: flex-start; text-align: left; } }
+.nps { max-width: 760px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 28px; margin-top: 28px; }
+.nps-q { font-size: 19px; font-weight: 700; margin: 0 0 20px; color: var(--navy); }
+.nps-scale { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 6px; }
+.nps-btn { appearance: none; border: 2px solid transparent; border-radius: 12px; padding: 10px 0 8px; background: var(--mist); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font: inherit; color: var(--navy); transition: transform .15s, border-color .15s, background .15s; min-width: 0; }
+.nps-btn .f { font-size: 26px; line-height: 1; }
+.nps-btn .n { font-size: 14px; font-weight: 800; }
+.nps-btn:hover, .nps-btn:focus-visible { transform: translateY(-3px) scale(1.06); outline: none; }
+.nps-btn.d:hover, .nps-btn.d:focus-visible, .nps-btn.d.on { border-color: #E5484D; background: #FDECEC; }
+.nps-btn.p:hover, .nps-btn.p:focus-visible, .nps-btn.p.on { border-color: #E8A10C; background: #FFF6DD; }
+.nps-btn.r:hover, .nps-btn.r:focus-visible, .nps-btn.r.on { border-color: #1E9E5A; background: #E4F6EC; }
+.nps-btn[disabled] { cursor: default; transform: none; }
+.nps-btn[disabled]:not(.on) { opacity: .35; }
+.nps-ends { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-top: 8px; }
+.nps-thanks { display: flex; align-items: center; text-align: left; gap: 16px; margin-top: 22px; padding: 16px 18px; border-radius: 14px; background: var(--mist); }
+.nps-thanks b { display: block; color: var(--navy); font-size: 18px; }
+.nps-thanks span { color: var(--muted); }
+.nps-big { font-size: 46px; line-height: 1; animation: npspop .5s cubic-bezier(.2,1.6,.4,1); }
+@keyframes npspop { from { transform: scale(.2) rotate(-20deg); } to { transform: none; } }
+#valora .wrap { text-align: center; }
+#valora .nps { margin-left: auto; margin-right: auto; }
+.nps-thanks[hidden], #valora[hidden] { display: none; }
+.nps-note { font-size: 13px; color: var(--muted); margin: 16px 0 0; }
+@media (max-width: 680px) { .nps { padding: 20px 16px; } .nps-scale { grid-template-columns: repeat(6, minmax(0, 1fr)); } .nps-btn .f { font-size: 24px; } }
 </style>
 </head>
 <body>
@@ -274,6 +297,23 @@ footer img { height: 40px; width: auto; }
   </div>
 </section>
 
+<section class="s alt" id="valora" hidden>
+  <div class="wrap">
+    <p class="eyebrow">Tu opinión cuenta</p>
+    <h2>¿Qué te ha parecido Game Changers?</h2>
+    <div class="nps" id="nps">
+      <p class="nps-q">Del 0 al 10, ¿con qué probabilidad recomendarías este simposio a un compañero o compañera?</p>
+      <div class="nps-scale" role="radiogroup" aria-label="Valoración de 0 a 10"></div>
+      <div class="nps-ends"><span>Nada probable</span><span>Muy probable</span></div>
+      <div class="nps-thanks" id="npsThanks" hidden>
+        <span class="nps-big" id="npsFace"></span>
+        <div><b>¡Gracias por tu valoración!</b><span id="npsMsg"></span></div>
+      </div>
+      <p class="nps-note">Es anónima: solo guardamos la puntuación, sin datos personales.</p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <img src="img/ue.png" alt="Universidad Europea Madrid">
@@ -363,12 +403,44 @@ footer img { height: 40px; width: auto; }
     var r = this.getBoundingClientRect();
     burst(r.left + r.width / 2, r.top + r.height / 3, 'tri');
   });
+  window.gcBurst = burst;
   document.getElementById('gclogo').addEventListener('click', function () {
     var r = this.getBoundingClientRect();
     burst(r.left + r.width / 2, r.top + r.height / 2);
     setTimeout(function () { burst(innerWidth * .2, innerHeight * .3); }, 180);
     setTimeout(function () { burst(innerWidth * .8, innerHeight * .3); }, 320);
   });
+})();
+(function () {
+  var sec = document.getElementById('valora'); if (!sec) return;
+  var OPEN = new Date('2026-12-03T16:30:00+01:00').getTime();
+  var preview = window.NPS_PREVIEW || /[?&]valora\b/.test(location.search);
+  if (Date.now() < OPEN && !preview) return;
+  sec.hidden = false;
+  var faces = ['😡','😠','😞','😟','🙁','😕','😐','🙂','😊','😄','🤩'];
+  var box = sec.querySelector('.nps-scale'), KEY = 'gc_nps_2026';
+  var done = null; try { done = localStorage.getItem(KEY); } catch (e) {}
+  var btns = faces.map(function (f, i) {
+    var b = document.createElement('button'); b.type = 'button';
+    b.className = 'nps-btn ' + (i <= 6 ? 'd' : i <= 8 ? 'p' : 'r');
+    b.setAttribute('role', 'radio'); b.setAttribute('aria-label', i + ' de 10');
+    b.innerHTML = '<span class="f">' + f + '</span><span class="n">' + i + '</span>';
+    b.addEventListener('click', function () { vote(i); });
+    box.appendChild(b); return b;
+  });
+  function show(i) {
+    btns.forEach(function (b, k) { b.disabled = true; b.classList.toggle('on', k === i); b.setAttribute('aria-checked', k === i); });
+    document.getElementById('npsFace').textContent = faces[i];
+    document.getElementById('npsMsg').textContent = i >= 9 ? ' Nos alegra muchísimo que te haya gustado. ¡Nos vemos en la próxima edición!' : i >= 7 ? ' Tomamos nota para que la próxima edición sea aún mejor.' : ' Sentimos que no haya estado a la altura. Tu opinión nos ayuda a mejorar.';
+    document.getElementById('npsThanks').hidden = false;
+  }
+  function vote(i) {
+    try { localStorage.setItem(KEY, String(i)); } catch (e) {}
+    if (window.umami) window.umami.track('Valoración NPS', { puntuacion: i, grupo: i <= 6 ? 'Detractor' : i <= 8 ? 'Pasivo' : 'Promotor' });
+    show(i);
+    if (i >= 9 && window.gcBurst) { var r = btns[i].getBoundingClientRect(); window.gcBurst(r.left + r.width / 2, r.top); }
+  }
+  if (done !== null && done !== '' && !isNaN(+done)) show(+done);
 })();
 </script>
 
